@@ -19,7 +19,7 @@ In particolare, se un nodo ha i valori, definisce i + 1 intervalli. Gli eventual
 
 Esempio:
 
-Un nodo interno con due valor1, 3 e 5 avrà tre figli: f1, f2 ed f3. 
+Un nodo interno con due valor1, 3 e 5 avrà tre figli: f1, f2 ed f3.  
 Se valore ∈ N e indicando con [fi] i valori contenuti nel nodo fi avremo: [f1] ∈ [0, 3), [f2] ∈ (3, 4) e [f3] ∈ (3, +∞).
 
 Operazioni:
