@@ -73,10 +73,10 @@ class Nodo {
     if(this.el3 != null) testo += this.el3.x.toString();
     text(testo, this.x, this.y);
     if (this.f1 != null) {
-      line(this.x + r, this.y + r, this.f1.x, this.f1.y);
+      line(this.x, this.y, this.f1.x, this.f1.y);
       this.f1.disegna();
     }
-    if (this.f2 != null) line(this.x + r, this.y + r, this.f2.x, this.f2.y);
+    if (this.f2 != null) line(this.x, this.y, this.f2.x, this.f2.y);
     if (this.f3 != null) line(this.x, this.y, this.f3.x, this.f3.y);
     if (this.f4 != null) line(this.x, this.y, this.f4.x, this.f4.y);
   }
