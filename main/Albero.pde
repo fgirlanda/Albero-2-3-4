@@ -7,9 +7,9 @@ class Albero {
   }
   
   void insert(Nodo v, int x){
-    if (v.el1 != null && v.el2 != null && v.el3 != null){
+    if (v.el1 != null && v.el2 != null && v.el3 != null){ //<>//
       Nodo nuovoFiglio = split(v);
-      if (v.p.el2 != null && x < v.p.el2.x) insert(v, x); 
+      if (v.p.el2 != null && x < v.p.el2) insert(v, x); 
       else insert(nuovoFiglio, x);
       return;
     }
@@ -17,11 +17,11 @@ class Albero {
       v.aggiungiOrd(x);
       return;
     }
-    if (x < v.el1.x) {
+    if (x < v.el1) {
       insert(v.f1, x);
       return;
     }
-    if (v.el2 == null || x < v.el2.x){
+    if (v.el2 == null || x < v.el2){
       insert(v.f2, x);
       return;
     }
@@ -30,18 +30,26 @@ class Albero {
   
   Nodo split(Nodo v){
     if (!v.isRadice()){
-      v.p.aggiungiOrd(v.el2.x);
-      v.p.f3 = new Nodo(v.el3.x);
-      v.p.f3.p = v.p;
+      Nodo out;
+      v.p.aggiungiOrd(v.el2);
+      if (v.p.f3 == null) {
+        v.p.f3 = new Nodo(v.el3);//nuovo nodo
+        out = v.p.f3;
+        v.p.f3.p = v.p;
+      }else{
+        v.p.f4 = new Nodo(v.el3);
+        out = v.p.f4;
+        v.p.f4.p = v.p;
+      }
       v.el2 = null;
       v.el3 = null;
-      return v.p.f3;
+      return out;
     }else{
-      Nodo newRoot = new Nodo(v.el2.x);
+      Nodo newRoot = new Nodo(v.el2); //nuovo nodo
       this.root = newRoot;
       v.p = newRoot;
       newRoot.f1 = v;
-      newRoot.f2 = new Nodo(v.el3.x);
+      newRoot.f2 = new Nodo(v.el3); //nuovo nodo
       newRoot.f2.p = newRoot;
       v.el2 = null;
       v.el3 = null;
