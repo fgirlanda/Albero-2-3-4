@@ -26,4 +26,18 @@ Operazioni:
 
 1) Inserimento
 
-   (work in progress)
+   L'operazione di inserimento, di un valore x, parte dalla radice e discende, partendo dalla radice e in ordine, l'albero 2-3-4, fino a trovare il nodo v in cui inserire x.
+   È necessario assicurarsi che il nodo v abbia spazio per il valore x, scomponendo v se di tipo 4 (3 valori):  
+
+   - Creare un nodo v', fratello di v, contenente il terzo valore del nodo v
+   - Spostare il secondo valore del nodo v nel padre*
+     
+   *il padre di v (e v') ha sicuramente spazio, perchè l'operazione di scomposizione viene eseguita su ogni nodo di tipo 4 incontrato lungo il cammino dalla radice (compresa) e il nodo v
+
+2) Cancellazione
+
+     (work in progress)
+
+   
+
+   
