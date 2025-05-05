@@ -1,13 +1,15 @@
 Disegnatore disegnatore;
-int[] sequenza = {2, 7, 3, 4, 10, 5, 6, 8, 9, 11, 12, 13};
+int[] sequenza = {2, 7, 3, 4, 10, 5, 6, 8, 9, 11, 12, 13, 20, 15, 17, 83, 23, 43, 57};
 Albero albero;
 int count = 1;
+final int w = 1200;
+final int h = 1200;
 
 void setup(){
-  size(600, 600);
+  size(w, h);
   background(255);
   albero = new Albero(sequenza[0]);
-  disegnatore = new Disegnatore(albero, 600, 600);
+  disegnatore = new Disegnatore(albero, w, h);
   
 }
 

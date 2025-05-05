@@ -7,7 +7,7 @@ class Albero {
   }
   
   void insert(Nodo v, int x){
-    if (v.el1 != null && v.el2 != null && v.el3 != null){ //<>//
+    if (v.el1 != null && v.el2 != null && v.el3 != null){
       Nodo nuovoFiglio = split(v);
       if (v.p.el2 != null && x < v.p.el2) insert(v, x); 
       else insert(nuovoFiglio, x);
@@ -51,6 +51,10 @@ class Albero {
       newRoot.f1 = v;
       newRoot.f2 = new Nodo(v.el3); //nuovo nodo
       newRoot.f2.p = newRoot;
+      if(v.f3 != null){
+        v.f3.p = newRoot.f2;
+        v.f4.p = newRoot.f2;
+      }
       v.el2 = null;
       v.el3 = null;
       newRoot.f2.f1 = v.f3;
