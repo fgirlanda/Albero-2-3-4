@@ -5,8 +5,11 @@ int count = 1;
 final int w = 1200;
 final int h = 1200;
 
+void settings(){
+  size(w, h);  
+}
 void setup(){
-  size(w, h);
+  
   background(255);
   albero = new Albero(sequenza[0]);
   disegnatore = new Disegnatore(albero, w, h);
