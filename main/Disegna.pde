@@ -12,7 +12,7 @@ class Disegnatore{
     this.h = h;
   }
   void disegna(){
-    disegnaNodo(albero.root, new PVector(w/2, h/2));
+    disegnaNodo(albero.root, new PVector(w/2, 100));
   }
   
   void disegnaNodo(Nodo v, PVector pos){
@@ -33,6 +33,7 @@ class Disegnatore{
     
     //figli (correggere sovrapposizioni)
     int nFigli = contaFigli(v);
+    //System.out.println(nFigli);
     if (nFigli == 0) return;
     float step = hspace / nFigli;
     //float offset = pos.x - (hspace/2) + (step/2);
@@ -71,8 +72,10 @@ class Disegnatore{
     return nFigli;
   }
   void disegnaFiglio(Nodo f, float offset, PVector posPadre){
+    int nNipoti = contaFigli(f);
+    float nuovoOffset = offset*((nNipoti+1)*0.6);
     PVector posFiglio = posPadre.copy();
-    posFiglio.add(offset, vspace);
+    posFiglio.add(nuovoOffset, vspace);
     PVector diff = PVector.sub(posPadre, posFiglio);
     float theta = PVector.angleBetween(diff, orizzontale);
     float deltaX = (r/2) * cos(theta);

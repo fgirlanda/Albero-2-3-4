@@ -44,13 +44,4 @@ class Nodo {
     
     return testo;
   }
-  //void disegna(){
-  //  circle(this.x, this.y, 20);
-  //  textAlign(CENTER, CENTER);
-  //  String testo = this.el1.x.toString() + ',' + this.el2.x.toString() + ',' + this.el3.x.toString();
-  //  text(testo, this.x, this.y);
-  //  line(this.x, this.y, this.f1.x, this.f1.y);
-  //  line(this.x, this.y, this.f2.x, this.f2.y);
-  //  line(this.x, this.y, this.f3.x, this.f3.y);
-  //}
 }
