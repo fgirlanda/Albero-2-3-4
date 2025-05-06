@@ -37,23 +37,25 @@ class Disegnatore{
     if (nFigli == 0) return;
     float step = hspace / nFigli;
     //float offset = pos.x - (hspace/2) + (step/2);
+    int nNipoti = contaNipoti(v);
     float offset = - hspace/2 + (step/2);
     if (v.f1 != null){
-      disegnaFiglio(v.f1, offset, pos);
+      disegnaFiglio(v.f1, offset*(nNipoti+1)/2, pos);
       offset += step;
     }
     if (v.f2 != null){
-      disegnaFiglio(v.f2, offset, pos);
+      disegnaFiglio(v.f2, offset*(nNipoti+1)/2, pos);
       offset += step;
     }
     if (v.f3 != null){
-      disegnaFiglio(v.f3, offset, pos);
+      disegnaFiglio(v.f3, offset*(nNipoti+1)/2, pos);
       offset += step;
     }
     if (v.f4 != null){
-      disegnaFiglio(v.f4, offset, pos);
+      disegnaFiglio(v.f4, offset*(nNipoti+1)/2, pos);
     } 
   }
+  
   
   int contaFigli(Nodo v){
     int nFigli = 0;
@@ -71,11 +73,23 @@ class Disegnatore{
     }
     return nFigli;
   }
+  
+  
+  int contaNipoti(Nodo v){
+    int nipoti = 0;
+    
+    if (v.f1 != null) nipoti += contaFigli(v.f1);
+    if (v.f2 != null) nipoti += contaFigli(v.f2);
+    if (v.f3 != null) nipoti += contaFigli(v.f3);
+    if (v.f4 != null) nipoti += contaFigli(v.f4);
+    
+    return nipoti;
+  }
+  
+  
   void disegnaFiglio(Nodo f, float offset, PVector posPadre){
-    int nNipoti = contaFigli(f);
-    float nuovoOffset = offset*((nNipoti+1)*0.6);
     PVector posFiglio = posPadre.copy();
-    posFiglio.add(nuovoOffset, vspace);
+    posFiglio.add(offset, vspace);
     PVector diff = PVector.sub(posPadre, posFiglio);
     float theta = PVector.angleBetween(diff, orizzontale);
     float deltaX = (r/2) * cos(theta);
